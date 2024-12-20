@@ -20,7 +20,7 @@ export const AppBar: React.FC = () => {
         <NavLink to="/" className={buildLinkClass}>
           Home
         </NavLink>
-        <NavLink to="/persons" className={buildLinkClass}>
+        <NavLink to="/people" className={buildLinkClass}>
           Persons
         </NavLink>
       </nav>

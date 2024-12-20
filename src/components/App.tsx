@@ -6,6 +6,7 @@ import "./App.css";
 import css from "./App.module.css";
 
 const Home = lazy(() => import("../pages/Home"));
+const People = lazy(() => import("../pages/People"));
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Suspense fallback={<div>Loading page...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/persons" element={<Products />} /> */}
+          <Route path="/people" element={<People />} />
           {/* <Route path="/persons/:id" element={<ProductDetails />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>

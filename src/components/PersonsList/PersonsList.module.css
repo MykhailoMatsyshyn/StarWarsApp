@@ -1,0 +1,36 @@
+.container {
+  display: grid; /* Встановлюємо CSS-сітку */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Автоматичне розташування елементів */
+  gap: 16px; /* Відступи між елементами */
+  padding: 16px; /* Внутрішні відступи контейнера */
+}
+
+.cardWrapper {
+  background-color: #f9f9f9; /* Світлий фон для картки */
+  border: 1px solid #ddd; /* Легка рамка */
+  border-radius: 8px; /* Згладжені кути */
+  overflow: hidden; /* Ховаємо зайві елементи */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тінь для картки */
+  text-align: center; /* Вирівнювання тексту */
+  transition: transform 0.2s ease-in-out; /* Анімація при наведенні */
+}
+
+.cardWrapper:hover {
+  transform: scale(1.05); /* Легке збільшення при наведенні */
+}
+
+img {
+  width: 100%; /* Зображення займає всю ширину картки */
+  height: auto; /* Автоматичне збереження пропорцій */
+  display: block;
+}
+
+.productName {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333; /* Темно-сірий текст */
+  font-weight: bold;
+}
