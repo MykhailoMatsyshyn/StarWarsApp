@@ -1,4 +1,61 @@
+/* AppBar.module.css */
+
 .header {
+  padding: 20px 40px;
+  background-color: #060c21;
+  border-bottom: 2px solid #2196f3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.header .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Audiowide", cursive;
+  font-size: 30px;
+  color: #fff;
+  gap: 20px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  font-family: "Audiowide", cursive;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #2196f3;
+}
+
+.active {
+  background-color: #2196f3;
+  color: #fff;
+  box-shadow: 0 0 10px #2196f3;
+}
+
+/* .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,4 +85,4 @@
 .active {
   color: white;
   background-color: orangered;
-}
+} */

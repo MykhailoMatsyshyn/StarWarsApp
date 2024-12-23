@@ -6,7 +6,7 @@ import LoadingCard from "../LoadingCard/LoadingCard";
 
 interface PersonsListProps {
   persons: IPerson[];
-  isLoading: boolean; // Доданий прапорець завантаження
+  isLoading: boolean;
 }
 
 export const PersonsList: React.FC<PersonsListProps> = ({
@@ -16,7 +16,6 @@ export const PersonsList: React.FC<PersonsListProps> = ({
   const location = useLocation();
 
   if (isLoading) {
-    // Відображення скелетонів, поки дані завантажуються
     return (
       <div className={css.container}>
         {[...new Array(10)].map((_, index) => (
@@ -30,17 +29,21 @@ export const PersonsList: React.FC<PersonsListProps> = ({
 
   return (
     <div className={css.container}>
-      {persons.map((person) => (
-        <div key={person.id} className={css.cardWrapper}>
-          <NavLink to={`${person.id}`} state={location}>
-            <img
-              src={`https://starwars-visualguide.com/assets/img/characters/${person.id}.jpg`}
-              alt={person.name}
-            />
-            <h3 className={css.productName}>{person.name}</h3>
-          </NavLink>
-        </div>
-      ))}
+      {persons.length > 0 ? (
+        persons.map((person) => (
+          <div key={person.id} className={css.cardWrapper}>
+            <NavLink to={`${person.id}`} state={location}>
+              <img
+                src={`https://starwars-visualguide.com/assets/img/characters/${person.id}.jpg`}
+                alt={person.name}
+              />
+              <h3 className={css.productName}>{person.name}</h3>
+            </NavLink>
+          </div>
+        ))
+      ) : (
+        <p className={css.noResultsMessage}>No characters found.</p>
+      )}
     </div>
   );
 };

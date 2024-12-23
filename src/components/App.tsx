@@ -13,9 +13,8 @@ const People = lazy(() => import("../pages/People"));
 function App() {
   return (
     <PageProvider>
+      <AppBar />
       <div className={css.container}>
-        <AppBar />
-
         <Suspense fallback={<div>Loading page...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
