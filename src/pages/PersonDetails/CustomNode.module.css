@@ -1,0 +1,99 @@
+.customNode {
+  position: relative;
+  width: 250px;
+  /* background: #060c21; */
+  background: rgba(6, 12, 33, 0.75);
+
+  border-radius: 8px;
+  padding: 20px;
+
+  font-family: "Audiowide", cursive;
+
+  /* background: linear-gradient(235deg, #2196f3, #010615, #f00000); */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  /* text-align: center; */
+
+  /* border: 1px solid #ddd; */
+  /* color: #fff; */
+
+  /* z-index: 1; */
+}
+
+.customNode::before,
+.customNode::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(235deg, #2196f3, #010615, #f00000);
+}
+
+.customNode.film::before,
+.customNode.film::after {
+  background: linear-gradient(235deg, #f00000, #010615, #f00000);
+}
+
+.customNode.starship::before,
+.customNode.starship::after {
+  background: linear-gradient(235deg, #2196f3, #010615, #2196f3);
+}
+
+.customNode::after {
+  filter: blur(40px);
+  z-index: -2;
+}
+
+.customNode img {
+  width: 120px;
+  /* height: 120px; */
+  border-radius: 5%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border: 4px solid #fff;
+  object-fit: contain;
+  /* object-fit: cover; */
+}
+
+.customNode h2 {
+  font-size: 22px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+/* .customNode .details p {
+  font-size: 14px;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.customNode .details p span {
+  font-weight: bold;
+} */
+
+.details {
+  margin-top: 25px;
+}
+
+.customNode .details p {
+  font-size: 14px;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: space-between; /* Вирівнювання по краях */
+  margin: 5px 0;
+}
+
+.customNode .details p span:first-child {
+  font-weight: bold; /* Для підпису зліва */
+  color: #fff;
+}
+
+.customNode .details p span:last-child {
+  color: #e0e0e0; /* Колір для значення справа */
+  font-weight: normal;
+}

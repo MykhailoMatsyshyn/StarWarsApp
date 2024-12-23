@@ -1,0 +1,13 @@
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Audiowide", cursive;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  padding: 0px 15px;
+}

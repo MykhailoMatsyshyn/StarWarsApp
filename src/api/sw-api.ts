@@ -1,13 +1,6 @@
 import axios from "axios";
-import { IPerson } from "./types";
+import { IFilm, IPerson, IStarShip, PeopleResponse } from "./types";
 import { BASE_API_URL } from "../constants";
-
-export interface PeopleResponse {
-  results: IPerson[];
-  count: number;
-  next: string | null;
-  previous: string | null;
-}
 
 export async function getPeople(
   page: number = 1,
@@ -26,6 +19,18 @@ export async function getPeople(
   console.log(response);
 
   return response.data;
+}
+
+export function getPerson(person_id: number = 1) {
+  return axios.get<IPerson>(BASE_API_URL + `/people/${person_id}`);
+}
+
+export function getFilm(film_id: number = 1) {
+  return axios.get<IFilm>(BASE_API_URL + `/films/${film_id}`);
+}
+
+export function getStarShip(starship_id: number = 1) {
+  return axios.get<IStarShip>(BASE_API_URL + `/starships/${starship_id}`);
 }
 
 // export async function getPeople(page: number = 1): Promise<PeopleResponse> {

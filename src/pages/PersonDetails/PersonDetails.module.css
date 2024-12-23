@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.title {
+  font-family: "Audiowide", cursive;
+  font-size: 30px;
+  color: #fff;
+  margin: 0;
+}
+
+.flowContainer {
+  height: 670px;
+  /* border: 1px solid #ddd; */
+  border-radius: 16px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+
+  background: rgba(6, 12, 33, 1);
+  position: relative;
+}
+
+.flowContainer::before,
+.flowContainer::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(225deg, #2196f3, #010615, #f00000);
+}
