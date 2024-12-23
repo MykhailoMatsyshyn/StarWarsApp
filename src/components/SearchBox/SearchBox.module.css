@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #060c21;
+  border: 2px solid #2196f3;
+  border-radius: 25px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.wrapper:focus-within {
+  border-color: #f00000;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  color: #fff;
+  font-size: 24px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Audiowide", cursive;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+  outline: none;
+}

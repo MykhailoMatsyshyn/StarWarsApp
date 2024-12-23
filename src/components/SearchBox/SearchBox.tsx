@@ -9,13 +9,13 @@ interface SearchBoxProps {
 export const SearchBox: React.FC<SearchBoxProps> = ({ value, onChange }) => {
   return (
     <div className={css.wrapper}>
-      <HiSearch className={css.icon} />
       <input
         className={css.input}
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
+      <HiSearch className={css.icon} />
     </div>
   );
 };
