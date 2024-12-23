@@ -5,24 +5,27 @@ import { AppBar } from "./AppBar/AppBar";
 import "./App.css";
 import css from "./App.module.css";
 import { PersonDetails } from "../pages/PersonDetails/PersonDetails";
+import { PageProvider } from "../context/PageContext";
 
 const Home = lazy(() => import("../pages/Home"));
 const People = lazy(() => import("../pages/People"));
 
 function App() {
   return (
-    <div className={css.container}>
-      <AppBar />
+    <PageProvider>
+      <div className={css.container}>
+        <AppBar />
 
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/people" element={<People />} />
-          <Route path="/people/:id" element={<PersonDetails />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </div>
+        <Suspense fallback={<div>Loading page...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/people" element={<People />} />
+            <Route path="/people/:id" element={<PersonDetails />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </PageProvider>
   );
 }
 

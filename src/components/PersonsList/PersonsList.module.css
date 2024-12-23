@@ -1,36 +1,81 @@
 .container {
-  display: grid; /* Встановлюємо CSS-сітку */
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); /* Автоматичне розташування елементів */
-  gap: 16px; /* Відступи між елементами */
-  padding: 16px; /* Внутрішні відступи контейнера */
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 80px;
+  column-gap: 100px;
+  margin: 70px 0;
 }
 
 .cardWrapper {
-  background-color: #f9f9f9; /* Світлий фон для картки */
-  border: 1px solid #ddd; /* Легка рамка */
-  border-radius: 8px; /* Згладжені кути */
-  overflow: hidden; /* Ховаємо зайві елементи */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тінь для картки */
-  text-align: center; /* Вирівнювання тексту */
-  transition: transform 0.2s ease-in-out; /* Анімація при наведенні */
+  text-align: center;
+  position: relative;
+  background: #060c21;
+  padding: 8px;
+  padding-bottom: 0;
+  cursor: pointer;
 }
 
-.cardWrapper:hover {
-  transform: scale(1.05); /* Легке збільшення при наведенні */
-}
-
-img {
-  width: 100%; /* Зображення займає всю ширину картки */
-  height: auto; /* Автоматичне збереження пропорцій */
+.cardWrapper img {
   display: block;
+}
+
+.cardWrapper h3 {
+  font-family: "Audiowide", cursive;
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
+  padding: 20px 0;
 }
 
 .productName {
   margin: 8px 0;
   font-size: 1rem;
-  color: #333; /* Темно-сірий текст */
+  color: #333;
   font-weight: bold;
+}
+
+.cardWrapper:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -1;
+}
+
+.cardWrapper:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: #fff;
+  z-index: -2;
+  filter: blur(40px);
+}
+
+.cardWrapper:before,
+.cardWrapper:after {
+  background: linear-gradient(235deg, #2196f3, #010615, #f00000);
+  transition: all 0.5s ease-in-out;
+}
+
+.cardWrapper:hover:before,
+.cardWrapper:hover:after {
+  background: linear-gradient(325deg, #2196f3, #010615, #f00000);
+}
+
+@media screen and (min-width: 768px) {
+  .cardWrapper {
+    flex: 1 1 calc(50% - 32px);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cardWrapper {
+    max-width: calc((100% - 2 * 100px) / 3);
+  }
 }
