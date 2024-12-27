@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import clsx from "clsx";
 import css from "./AppBar.module.css";
-import starWarsIcon from "../../../public/starWarsIcon.svg";
+import starWarsIcon from "../../assets/starWarsIcon.svg";
 
 const buildLinkClass = ({ isActive }: { isActive: boolean }): string => {
   return clsx(css.link, isActive && css.active);
@@ -12,7 +12,6 @@ export const AppBar: React.FC = () => {
     <header className={css.header}>
       <div className={css.content}>
         <Link to="/" className={css.logo}>
-          {/* Обгортаємо логотип у Link */}
           <img src={starWarsIcon} alt="Star Wars Icon" />
           <span>StarWars</span>
         </Link>
@@ -22,7 +21,7 @@ export const AppBar: React.FC = () => {
             Home
           </NavLink>
           <NavLink to="/people" className={buildLinkClass}>
-            Persons
+            Characters
           </NavLink>
         </nav>
       </div>

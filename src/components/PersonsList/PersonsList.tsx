@@ -17,9 +17,9 @@ export const PersonsList: React.FC<PersonsListProps> = ({
 
   if (isLoading) {
     return (
-      <div className={css.container}>
+      <div className={`${css.containerLoad} ${css.container}`}>
         {[...new Array(10)].map((_, index) => (
-          <div key={index} className={css.cardWrapper}>
+          <div key={index}>
             <LoadingCard />
           </div>
         ))}

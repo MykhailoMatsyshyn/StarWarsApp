@@ -2,7 +2,13 @@ import axios from "axios";
 import { IFilm, IPerson, IStarShip, PeopleResponse } from "./types";
 import { BASE_API_URL } from "../constants";
 
-export async function getPeople(
+/**
+ * Fetches a list of people from the API.
+ * @param page - The page number to fetch (default is 1).
+ * @param search - A search query to filter people (default is an empty string).
+ * @returns A Promise with the list of people and pagination information.
+ */
+export async function fetchPeopleList(
   page: number = 1,
   search: string = ""
 ): Promise<PeopleResponse> {
@@ -16,57 +22,32 @@ export async function getPeople(
     `${BASE_API_URL}/people/?${queryParams.toString()}`
   );
 
-  console.log(response);
-
   return response.data;
 }
 
-export function getPerson(person_id: number = 1) {
+/**
+ * Fetches detailed information about a specific person by their ID.
+ * @param personId - The ID of the person to fetch.
+ * @returns A Promise with the person's details.
+ */
+export function fetchPersonDetails(person_id: number = 1) {
   return axios.get<IPerson>(BASE_API_URL + `/people/${person_id}`);
 }
 
-export function getFilm(film_id: number = 1) {
+/**
+ * Fetches information about a film by its ID.
+ * @param filmId - The ID of the film to fetch.
+ * @returns A Promise with the film's details.
+ */
+export function fetchFilmDetails(film_id: number = 1) {
   return axios.get<IFilm>(BASE_API_URL + `/films/${film_id}`);
 }
 
-export function getStarShip(starship_id: number = 1) {
+/**
+ * Fetches information about a starship by its ID.
+ * @param starshipId - The ID of the starship to fetch.
+ * @returns A Promise with the starship's details.
+ */
+export function fetchStarShipDetails(starship_id: number = 1) {
   return axios.get<IStarShip>(BASE_API_URL + `/starships/${starship_id}`);
 }
-
-// export async function getPeople(page: number = 1): Promise<PeopleResponse> {
-//   const response = await axios.get<PeopleResponse>(
-//     `${BASE_API_URL}/people/?page=${page}`
-//   );
-//   return response.data;
-// }
-
-// const api = axios.create({
-//   baseURL: BASE_API_URL,
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
-
-// interface Hero {
-//   id: number;
-//   name: string;
-// }
-
-// interface HeroesResponse {
-//   results: Hero[];
-//   count: number;
-//   total_pages: number;
-// }
-
-// export const getHeroes = async (page: number): Promise<Hero[]> => {
-//   try {
-//     const response = await api.get<Hero[]>("/people", {
-//       params: { page },
-//     });
-
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error fetching heroes:", error);
-//     throw new Error("Failed to fetch heroes");
-//   }
-// };

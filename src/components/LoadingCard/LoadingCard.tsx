@@ -4,15 +4,14 @@ import ContentLoader from "react-content-loader";
 const LoadingCard: FC = () => (
   <ContentLoader
     speed={1}
-    width={387}
-    height={605}
-    viewBox="0 0 387 605"
-    backgroundColor="#dedede"
-    foregroundColor="#ecebeb"
+    width={255}
+    height={400}
+    viewBox="0 0 255 400"
+    backgroundColor="#020b16"
+    foregroundColor="rgba(240, 0, 0, 0.3)"
   >
-    <rect x="8" y="26" rx="3" ry="3" width="365" height="502" />
-    <rect x="74" y="538" rx="0" ry="0" width="230" height="20" />
-    <rect x="152" y="565" rx="0" ry="0" width="64" height="30" />
+    <rect x="8" y="26" rx="3" ry="3" width="239" height="310" />{" "}
+    <rect x="74" y="365" rx="0" ry="0" width="120" height="20" />{" "}
   </ContentLoader>
 );
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { BackLink } from "../../components/BackLink/BackLink";
 
 import ReactFlow, {
@@ -15,10 +15,16 @@ import "reactflow/dist/style.css";
 
 import styles from "./PersonDetails.module.css";
 
-import { getPerson, getFilm, getStarShip } from "../../api/sw-api";
+import {
+  fetchPersonDetails,
+  fetchFilmDetails,
+  fetchStarShipDetails,
+} from "../../api/sw-api";
 import { IFilm, IPerson, IStarShip } from "../../api/types";
 
 import CustomNode from "./CustomNode";
+
+import { useErrorContext } from "../../context/ErrorContext";
 
 interface UnifiedNodeData {
   label: string;
@@ -52,6 +58,8 @@ const nodeTypes = {
 export const PersonDetails: React.FC = () => {
   const { id } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
+  const { setError } = useErrorContext();
   const backLinkHref = location.state ?? "/people";
 
   const [person, setPerson] = useState<IPerson | null>(null);
@@ -63,15 +71,21 @@ export const PersonDetails: React.FC = () => {
   useEffect(() => {
     const fetchPersonData = async () => {
       try {
-        const response = await getPerson(Number(id));
+        const response = await fetchPersonDetails(Number(id));
+        if (!response.data) {
+          setError("Person not found.");
+          navigate("/people");
+          return;
+        }
         setPerson(response.data);
       } catch (error) {
-        console.error("Error fetching person data:", error);
+        setError("Person not found.");
+        navigate("/people");
       }
     };
 
     fetchPersonData();
-  }, [id]);
+  }, [id, navigate, setError]);
 
   useEffect(() => {
     if (!person) return;
@@ -79,10 +93,10 @@ export const PersonDetails: React.FC = () => {
     const fetchRelatedData = async () => {
       try {
         const filmPromises = person.films.map((filmId) =>
-          getFilm(filmId).then((res) => res.data)
+          fetchFilmDetails(filmId).then((res) => res.data)
         );
         const starshipPromises = person.starships.map((starshipId) =>
-          getStarShip(starshipId).then((res) => res.data)
+          fetchStarShipDetails(starshipId).then((res) => res.data)
         );
 
         const [filmsData, starshipsData] = await Promise.all([
@@ -154,14 +168,15 @@ export const PersonDetails: React.FC = () => {
       style: { strokeDasharray: "5,5", stroke: "#f00000", strokeWidth: 3 },
     }));
 
-    const starshipEdges: GraphEdge[] = starships.flatMap((starship) =>
-      starship.films.map((filmId) => ({
-        id: `edge-film-starship-${starship.id}-${filmId}`,
-        source: `film-${filmId}`,
-        target: `starship-${starship.id}`,
-        animated: true,
-        style: { strokeDasharray: "5,5", stroke: "#2196f3", strokeWidth: 3 },
-      }))
+    const starshipEdges: GraphEdge[] = starships.flatMap(
+      (starship) =>
+        starship?.films?.map((filmId) => ({
+          id: `edge-film-starship-${starship.id}-${filmId}`,
+          source: `film-${filmId}`,
+          target: `starship-${starship.id}`,
+          animated: true,
+          style: { strokeDasharray: "5,5", stroke: "#2196f3", strokeWidth: 3 },
+        })) || []
     );
 
     setNodes([personNode, ...filmNodes, ...starshipNodes]);

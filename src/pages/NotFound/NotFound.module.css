@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin: 0 auto;
+  width: 1280px;
+  font-family: "Audiowide", cursive;
+  margin-top: 40px;
+}
+
+.container h1 {
+  font-size: 80px;
+  margin-bottom: 25px;
+}
+
+.container p {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.trooper1 {
+  width: 30%;
+  margin-left: 140px;
+  margin-bottom: 20px;
+}
+
+.content {
+  text-align: center;
+}
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  width: 230px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 40px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #1976d2;
+}
