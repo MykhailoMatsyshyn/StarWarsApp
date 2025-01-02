@@ -24,8 +24,12 @@ export default function People() {
       try {
         setError(null);
         const data = await fetchPeopleList(currentPage, searchQuery);
-        setPersons(data.results);
-        setTotalPages(Math.ceil(data.count / 10));
+        if (data && data.results) {
+          setPersons(data.results);
+          setTotalPages(Math.ceil(data.count / 10));
+        } else {
+          setError("No data found.");
+        }
       } catch (error) {
         setError("Error fetching people data.");
       } finally {

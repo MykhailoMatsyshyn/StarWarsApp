@@ -3,7 +3,7 @@ import { PersonsList } from "../../components/PersonsList/PersonsList";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // Import mock data
-import { mockPersons } from "../mockData/mockPersons"; // <-- Import mockPersons
+import { mockPersons } from "../../__mocks__/mockPersons"; // <-- Import mockPersons
 
 // Mock for LoadingCard component
 jest.mock("../../components/LoadingCard/LoadingCard.tsx", () => () => (

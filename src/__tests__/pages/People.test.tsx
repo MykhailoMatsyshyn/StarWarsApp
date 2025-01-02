@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { act } from "react";
 
 // Import mock data
-import { mockPersons } from "../mockData/mockPersons"; // <-- Import mockPersons
+import { mockPersons } from "../../__mocks__/mockPersons"; // <-- Import mockPersons
 
 // Mocking the fetchPeopleList API from swApi
 jest.mock("../../api/sw-api");
