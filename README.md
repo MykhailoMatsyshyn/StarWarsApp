@@ -2,6 +2,8 @@
 
 This is a React-based application for displaying information about Star Wars characters, their films, starships, and related data.
 
+https://github.com/user-attachments/assets/fb184505-7f7c-4d3b-bd3b-bb56125114d3
+
 ## Features
 
 - View detailed information about Star Wars characters
@@ -170,3 +172,7 @@ I welcome contributions to this project! If you'd like to contribute, please fol
 5. Open a pull request.
 
 ---
+
+![Star Wars Poster](https://ew.com/thmb/KfyoMYHxJVq6F7rDKtA2aBr-ryY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/tfa_poster_wide_header-1536x864-324397389357-2fd6ce0c46974ff7ac39ea01ed1c85cd.jpg)
+
+
